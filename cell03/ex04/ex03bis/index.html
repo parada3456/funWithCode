@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cell4.3</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style> 
+        body {
+            padding: 10vh;
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            width: 300px;
+            padding: 10px;
+            margin: auto;
+        }
+
+        #ft_list .box {
+            max-width: 300px;
+            border: 1px solid rgb(7, 6, 5);
+        }
+
+        .task {
+            margin: auto;
+            margin-bottom: 10px;
+            padding: 8px;
+            max-width: 300px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            color: #000000;
+        }
+    </style>
+</head>
+
+<body> 
+    <div class="box"> press new to create TODO </div>
+    <div id="ft_list"></div>
+    <div style="text-align: center; margin: 10px;">
+        <button onclick="createTask()">New</button>
+    </div>
+    <hr>
+    <footer style="text-align: center; margin: 10px;">
+        <button onclick="clearTasksCookie()">Clear Tasks</button>
+    </footer>
+    <script src="todo.js"></script>
+</body>
+
+</html>

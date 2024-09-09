@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="button1" onclick="changeBackground()">Click me!</button>
+</body>
+<script>
+    function changeBackground() {
+        var button = document.getElementById('button1');
+        var currentW = button.offsetWidth;
+        var currentH = button.offsetHeight;
+        button.style.width = (currentW + 20) + 'px';
+        button.style.height = (currentH + 10) + 'px';
+
+        document.body.style.backgroundColor = 'rgb(' + Math.round(Math.random() * 255) + ',' + Math.round(Math.random() * 255) + ',' + Math.round(Math.random() * 255) + ')'
+    }
+</script>
+
+</html>

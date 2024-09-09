@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        div {
+            background-color: red;
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            margin: 0 auto;
+            margin-top: 30vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="balloon"></div>
+</body>
+<script>
+    var colors = ["green", "blue", "red"];
+    var colorIndex = 0;
+
+    $(document).ready(function() {
+        $('#balloon').on('click', changeBalloon);
+        $('#balloon').on('mouseleave', shrinkBalloon);
+    });
+
+    function changeBalloon() {
+        var balloon = $('#balloon');
+        var currentW = balloon.width();
+        var currentH = balloon.height();
+
+        if (currentH > 420 && currentW > 420) {
+            balloon.width(200).height(200);
+        } else if (currentH <= 420 && currentW <= 420) {
+            balloon.width(currentW + 10).height(currentH + 10);
+        }
+        balloon.css('background-color', colors[colorIndex]);
+        colorIndex = (colorIndex + 1) % 3;
+        console.log("color index: ",colorIndex);
+    }
+
+    function shrinkBalloon() {
+        var balloon = $('#balloon');
+        var currentW = balloon.width();
+        var currentH = balloon.height();
+
+        if (currentH >= 205 && currentW >= 205) {
+            balloon.width(currentW - 5).height(currentH - 5);
+        }
+        colorIndex = (colorIndex - 1 + 3) % 3;
+        balloon.css('background-color', colors[(colorIndex - 1 + 3) % 3]);
+        console.log("color index: ",colorIndex);
+    }
+</script>
+
+</html>

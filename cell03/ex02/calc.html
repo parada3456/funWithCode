@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="calcForm">
+        <input type="text" id="num1" placeholder="number1" required>
+        <select id="operator" required>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <input type="text" id="num2" placeholder="number2" required>
+        <label> = </label>
+        <input type="submit" value="Try me!">
+    </form>
+</body>
+<script>
+    setInterval(function () {
+        alert("Please use me...");
+    }, 30000);
+
+    function isNumber(value) {
+        return typeof value === 'number';
+    }
+
+    document.getElementById("calcForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+        var operator = document.getElementById("operator").value;
+        var ans;
+        console.log(isNumber(2.3));
+        if (isNumber(num1) && isNumber(num2) && num1 >= 0 && num2 >= 0) {
+            switch (operator) {
+                case "+":
+                    ans = num1 + num2;
+                    alert("Answer is " + ans);
+                    console.log("Answer is " + ans);
+                    break;
+                case "-":
+                    ans = num1 - num2;
+                    alert("Answer is " + ans);
+                    console.log("Answer is " + ans);
+                    break;
+                case "*":
+                    ans = num1 * num2;
+                    alert("Answer is " + ans);
+                    console.log("Answer is " + ans);
+                    break;
+                case "/":
+                    if (num2 == 0) {
+                        alert("It's over 9000!");
+                        console.log("It's over 9000!");
+                        break;
+                    }
+                    ans = num1 / num2;
+                    alert("Answer is " + ans);
+                    console.log("Answer is " + ans);
+                    break;
+                case "%":
+                    if (num2 == 0) {
+                        alert("It's over 9000!");
+                        console.log("It's over 9000!");
+                        break;
+                    }
+                    ans = num1 % num2;
+                    alert("Answer is " + ans);
+                    console.log("Answer is " + ans);
+                    break;
+            }
+        }
+        else {
+            alert("ERROR :(");
+            console.log("ERROR :(");
+        }
+    });
+</script>
+
+</html>

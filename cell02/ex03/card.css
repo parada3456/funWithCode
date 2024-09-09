@@ -1,0 +1,38 @@
+.navBar {
+    position: sticky;
+    top: 0;
+    background-color: rgb(247, 233, 216);
+    height: 40px;
+    justify-content: center;
+    margin: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: 4fr 2fr 1fr 1fr 1fr;
+}
+
+.grid-item {
+    /* border: 1px solid rgb(75, 58, 26); */
+    /* background-color: rgb(105, 205, 172); */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile {
+    height: max-content;
+}
+
+a:link, a:visited {
+    background-color: rgb(41, 34, 25);
+    color: rgb(232, 157, 157);
+    width: 100%;
+    height: 30px;
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}

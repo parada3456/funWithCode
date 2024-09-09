@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: red;
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="balloon" onclick="changeBalloon()" onmouseleave="shrinkBalloon()"></div>
+</body>
+<script>
+    var colors = ["green", "blue", "red"];
+    var colorIndex = 0;
+    var balloon2 = document.getElementById('balloon');
+    var currentW1 = balloon2.offsetWidth;
+    var currentH1 = balloon2.offsetHeight;
+    console.log("currentH: " + currentH1 + ", " + "currentW: " + currentW1);
+
+    function changeBalloon() {
+        var balloon = document.getElementById('balloon');
+        var currentW = balloon.offsetWidth;
+        var currentH = balloon.offsetHeight;
+        if (currentH > 420 && currentW > 420) {
+            balloon.style.width = 200 + 'px';
+            balloon.style.height = 200 + 'px';
+        }
+        if (currentH <= 420 && currentW <= 420) {
+            balloon.style.width = (currentW + 10) + 'px';
+            balloon.style.height = (currentH + 10) + 'px';
+        }
+        console.log("currentH: " + currentH + ", " + "currentW: " + currentW);
+        balloon.style.backgroundColor = colors[colorIndex]
+        colorIndex = (colorIndex + 1) % 3
+    }
+    function shrinkBalloon() {
+        var balloon = document.getElementById('balloon');
+        var currentW = balloon.offsetWidth;
+        var currentH = balloon.offsetHeight;
+        if (currentH > 205 && currentW > 205) {
+            balloon.style.width = (currentW - 5) + 'px';
+            balloon.style.height = (currentH - 5) + 'px';
+        }
+        console.log("currentH: " + currentH + ", " + "currentW: " + currentW);
+        balloon.style.backgroundColor = colors[colorIndex - 1 + 3]
+        colorIndex = (colorIndex - 1 + 3) % 3;
+    }
+</script>
+
+</html>
